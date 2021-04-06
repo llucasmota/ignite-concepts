@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { v4 as uuidV4 } from 'uuid';
 
-import Specification from '../model/Specification';
+import Specification from '../../model/Specification';
 import {
   ICreateSpecificationDTO,
   ISpecificationRepository,
-} from './ISpecificationRepository';
+} from '../ISpecificationRepository';
 
 class SpecificationsRepository implements ISpecificationRepository {
   private specifications: Specification[];
