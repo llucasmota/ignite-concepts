@@ -1,16 +1,24 @@
-import { v4 as uuidV4 } from "uuid";
+/* eslint-disable @typescript-eslint/naming-convention */
+import { v4 as uuidV4 } from 'uuid';
 
-import Category from "../model/Category";
+import Category from '../model/Category';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "./ICatetoriesRepository";
+} from './ICatetoriesRepository';
 
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[] = [];
-
-  constructor() {
+  private static INSTANCE: CategoriesRepository;
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+    return CategoriesRepository.INSTANCE;
   }
 
   create({ name, description }: ICreateCategoryDTO): void {
