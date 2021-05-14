@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { v4 as uuidV4 } from 'uuid';
 
-import Specification from '../../model/Specification';
+import Specification from '../../entities/Specification';
 import {
   ICreateSpecificationDTO,
   ISpecificationRepository,
