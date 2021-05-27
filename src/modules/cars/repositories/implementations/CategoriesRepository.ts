@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { getRepository, Repository } from 'typeorm';
-import { v4 as uuidV4 } from 'uuid';
 
 import { Category } from '../../entities/Category';
 import {
@@ -25,11 +24,10 @@ class CategoriesRepository implements ICategoriesRepository {
   }
   async list(): Promise<Array<Category>> {
     const categories = await this.repository.find();
-    console.log('dados', categories);
     return categories;
   }
   async findByName(name: string): Promise<Category> {
-    const category = await this.repository.findOne({ name });
+    const category = await this.repository.findOneOrFail({ name });
     return category;
   }
 }
