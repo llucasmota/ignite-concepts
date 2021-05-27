@@ -8,9 +8,8 @@ interface IRequest {
 }
 @injectable()
 class CreateSpecificationUseCase {
-  // eslint-disable-next-line prettier/prettier
   constructor(
-    @inject('CategoriesRepository')
+    @inject('SpecificationsRepository')
     private specificationRepository: ISpecificationRepository
   ) { }
   execute({ name, description }: IRequest): void {

@@ -23,8 +23,9 @@ class CategoriesRepository implements ICategoriesRepository {
 
     await this.repository.save(category);
   }
-  async list(): Promise<Category[]> {
+  async list(): Promise<Array<Category>> {
     const categories = await this.repository.find();
+    console.log('dados', categories);
     return categories;
   }
   async findByName(name: string): Promise<Category> {
