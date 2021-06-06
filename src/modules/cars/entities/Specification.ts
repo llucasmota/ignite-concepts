@@ -1,10 +1,19 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+import { Entity, PrimaryColumn, Column, CreateDateColumn } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
+@Entity('specifications')
 export default class Specification {
+  @PrimaryColumn()
   id?: string;
+
+  @Column()
   name: string;
+
+  @Column()
   description: string;
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+
+  @CreateDateColumn()
   created_at: Date;
 
   constructor() {
