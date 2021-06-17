@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ICreateUserDTO } from '../dtos/ICreateUserDTO';
 
-interface IUserRepository {
+interface IUsersRepository {
   create(data: ICreateUserDTO): Promise<void>;
 }
 
-export type { IUserRepository };
+export type { IUsersRepository };
