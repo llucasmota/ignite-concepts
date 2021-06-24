@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { injectable, inject } from 'tsyringe';
 import 'reflect-metadata';
 
@@ -16,14 +17,12 @@ class CreateUserUseCase {
     name,
     password,
     driver_license,
-    username,
   }: ICreateUserDTO): Promise<void> {
     await this.usersRepository.create({
       email,
       name,
       password,
       driver_license,
-      username,
     });
   }
 }
