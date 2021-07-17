@@ -33,6 +33,6 @@ export async function ensureAutheticated(
     }
     next();
   } catch (err) {
-    throw new Error(' um errinho');
+    throw new Error('Error');
   }
 }
