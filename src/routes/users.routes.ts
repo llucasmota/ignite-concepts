@@ -5,7 +5,6 @@ import { CreateUsersController } from '../modules/accounts/useCases/createUser/C
 const createUsersController = new CreateUsersController();
 
 const usersRoutes = Router();
-
 usersRoutes.post('/', createUsersController.handle);
 
 export { usersRoutes };

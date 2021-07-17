@@ -39,7 +39,7 @@ class AuthenticateUserUseCase {
     }
     // gerar jsonWebToken
 
-    const token = sign({}, 'rentx-370f2ed80fb8f2311a135806591fc23f', {
+    const token = sign({}, '370f2ed80fb8f2311a135806591fc23f', {
       subject: user.id,
       expiresIn: '1d',
     });
