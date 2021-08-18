@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
+import { AppError } from '../errors/AppError';
 import { UsersRepository } from '../modules/accounts/repositories/implementations/UsersRepository';
 
 interface IPayload {
@@ -16,11 +17,12 @@ export async function ensureAutheticated(
 
   const { authorization } = request.headers;
   if (!authorization) {
-    throw new Error('Token missing');
+    throw new AppError('Token missing', 401);
   }
   const [, token] = authorization.split(' ');
 
   try {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     const { sub: user_id } = verify(
       token,
       '370f2ed80fb8f2311a135806591fc23f'
@@ -29,10 +31,10 @@ export async function ensureAutheticated(
     const user = await userRepository.findById(user_id);
 
     if (!user) {
-      throw new Error('User does not exists!');
+      throw new AppError('User does not exists!', 401);
     }
     next();
   } catch (err) {
-    throw new Error('Error');
+    throw new AppError('Error');
   }
 }
