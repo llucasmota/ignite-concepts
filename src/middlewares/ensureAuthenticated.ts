@@ -33,6 +33,12 @@ export async function ensureAutheticated(
     if (!user) {
       throw new AppError('User does not exists!', 401);
     }
+    /**
+     * Add user on request
+     */
+    request.user = {
+      id: user_id,
+    };
     next();
   } catch (err) {
     throw new AppError('Error');
