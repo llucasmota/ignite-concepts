@@ -8,10 +8,9 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
   categories: Category[] = [];
 
   async findByName(name: string): Promise<Category> {
-    const category = await this.categories.find(
-      (category) => category.name === name
-    );
-    return category;
+    const category = this.categories.find((category) => category.name === name);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return category!;
   }
   async list(): Promise<Category[]> {
     return this.categories;
