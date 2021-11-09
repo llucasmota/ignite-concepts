@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe';
-import 'reflect-metadata';
 
-import { AppError } from '../../../../errors/AppError';
+import 'reflect-metadata';
+import { AppError } from '@errors/AppError';
+
 import { ICategoriesRepository } from '../../repositories/ICatetoriesRepository';
 
 interface IRequest {
